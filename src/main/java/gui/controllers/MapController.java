@@ -26,9 +26,11 @@ import services.CurrentUserManager;
 import services.OrganizationController;
 
 import java.net.URL;
+import java.sql.Time;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 import static gui.utils.SpecialWindows.showInfo;
 
@@ -73,6 +75,7 @@ public class MapController implements Initializable {
         button_exit.setOnAction(e -> close());
         button_info.setOnAction(e -> setButton_info());
         button_table.setOnAction(e -> new TableController(width, height, userManager, controller).launchTableScene(stage));
+        button_clear.setOnAction(e -> setButton_clear());
         drawAxes();
         controller.getAll().forEach(this::displayOrganization);
         setLang();
@@ -136,12 +139,6 @@ public class MapController implements Initializable {
         circle.setOnMouseEntered(event -> pane_map.getChildren().add(imageView));
         circle.setOnMouseExited(event -> pane_map.getChildren().remove(imageView));
         circle.setOnMouseClicked(event -> {
-//            ImageView iv = new ImageView(new Image("/assets/gif2.gif"));
-//            iv.setX(clampedX);
-//            iv.setY(clampedY); todo
-//            iv.setFitWidth(80);
-//            iv.setFitHeight(62);
-//            pane_map.getChildren().add(iv);
             showInfo(organization.getName(), organization.toString());
         });
 
@@ -177,6 +174,29 @@ public class MapController implements Initializable {
     }
 
     private void setButton_clear() {
-        controller.clear();
+        if (controller.clear()){
+            pane_map.getChildren().clear();
+
+            drawAxes();
+            controller.getAll().forEach(this::displayOrganization);
+
+            ImageView iv = new ImageView(new Image("/clear.gif"));
+            iv.setX(CENTER_X);
+            iv.setY(CENTER_Y);
+            iv.setFitWidth(100);
+            iv.setFitHeight(100);
+            pane_map.getChildren().add(iv);
+            try {
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(4000);
+                    } catch (Exception e) {
+                        pane_map.getChildren().remove(iv);
+                    }
+                }).start();
+            } catch (Exception e){
+                pane_map.getChildren().remove(iv);
+            }
+        }
     }
 }
