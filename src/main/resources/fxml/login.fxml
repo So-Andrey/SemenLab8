@@ -71,5 +71,25 @@
          </image>
       </ImageView>
       <Button fx:id="close_button" layoutX="1038.0" layoutY="726.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: TRANSPERENT; -fx-cursor: hand;" />
+      <Button fx:id="button_ua" layoutX="82.0" layoutY="715.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-cursor: hand;" text="Український">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_sr" layoutX="757.0" layoutY="717.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-cursor: hand;" text="Српски">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_ru" layoutX="307.0" layoutY="716.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-cursor: hand;" text="Русский">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_es" layoutX="533.0" layoutY="716.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 50; -fx-cursor: hand;" text="Español">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

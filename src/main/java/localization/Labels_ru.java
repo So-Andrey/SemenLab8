@@ -28,7 +28,15 @@ public class Labels_ru extends ListResourceBundle {
             {"user", "Имя пользователя"},
             {"coordinates", "Координаты"},
             {"date", "Дата создания"},
-            {"creator", "Создатель"}
+            {"creator", "Создатель"},
+            {"attempt", "Попытка входа"},
+            {"success", "Успешно!!!"},
+            {"exists", "Логин уже существует"},
+            {"have_acc", "Уже есть аккаунт?"},
+            {"sign_up", "Зарегистрироваться"},
+            {"login", "Войти"},
+            {"no_acc", "Нет аккаунта?"},
+            {"password", "Пароль"}
     };
 
     public Object[][] getContents() {
