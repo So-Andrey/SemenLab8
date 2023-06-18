@@ -44,12 +44,12 @@
                   <Image url="@../images/image 12.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="72.0" fitWidth="105.0" layoutX="689.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="72.0" fitWidth="105.0" layoutX="724.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/image 7.png" />
+                  <Image url="@../images/script.png" />
                </image>
             </ImageView>
-            <Button fx:id="button_table" layoutX="693.0" layoutY="17.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="96.0" style="-fx-background-color: transparent;">
+            <Button fx:id="button_script" layoutX="728.0" layoutY="16.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="63.0" style="-fx-background-color: transparent;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -122,7 +122,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <TableView fx:id="table" layoutX="27.0" layoutY="227.0" prefHeight="516.0" prefWidth="1017.0">
+      <TableView fx:id="table" layoutX="27.0" layoutY="227.0" prefHeight="516.0" prefWidth="1017.0" stylesheets="@../css/style.css">
          <columns>
             <TableColumn fx:id="name" prefWidth="99.82389068603516" text="Name" />
             <TableColumn fx:id="id" prefWidth="69.06134033203125" text="ID" />
@@ -134,5 +134,15 @@
             <TableColumn fx:id="creator" prefWidth="121.383544921875" text="Creator" />
          </columns>
       </TableView>
+      <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="639.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/broom.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="button_clear" layoutX="645.0" layoutY="16.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="73.0" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,12 +1,15 @@
 package services;
 
 import db.DataBaseProvider;
+import localization.Lang;
 import model.Organization;
 import model.OrganizationType;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -80,10 +83,10 @@ public class OrganizationController {
     }
 
     public String info() {
-        String answer = ("Данные о базе данных: \n");
-        answer += "Тип: " + Vector.class.getTypeName().split("\\.")[2] + "\n";
-        answer += "Время создания: " + source.getCreationDate().toString() + "\n";
-        answer += "Элементов внутри: " + (source.getDataSet().size()) + "\n";
+        String answer = "";
+        answer += Lang.getString("type") + ": " + Vector.class.getTypeName().split("\\.")[2] + "\n";
+        answer += Lang.getString("init") + ": " + source.getCreationDate().toLocalDate() + "\n";
+        answer += Lang.getString("amount") + ": " + (source.getDataSet().size()) + "\n";
         return answer;
     }
     public boolean checkUserPassword(String username, String password) {
@@ -95,4 +98,9 @@ public class OrganizationController {
     public Set<String> getUserNameList() {
         return source.getUserNameList();
     }
+    public Set<Organization> getDataSet() {
+        source.updateDataSet();
+        return source.getDataSet();
+    }
+
 }

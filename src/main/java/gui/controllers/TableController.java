@@ -1,5 +1,9 @@
 package gui.controllers;
 
+import commands.Invoker;
+import gui.utils.SpecialWindows;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -7,9 +11,11 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import localization.Lang;
@@ -19,7 +25,7 @@ import model.Organization;
 import model.OrganizationType;
 import services.CurrentUserManager;
 import services.OrganizationController;
-
+import utils.InputType;
 import static gui.utils.SpecialWindows.showInfo;
 
 public class TableController {
@@ -71,12 +77,11 @@ public class TableController {
 
     @FXML
     private Button button_map;
-
-    @FXML
-    private Button button_table;
-
     @FXML
     private Button button_update;
+
+    @FXML
+    private Button button_script;
 
     @FXML
     private TableColumn<Organization, String> coordinates;
@@ -106,14 +111,51 @@ public class TableController {
     private TableColumn<Organization, String> type;
 
     @FXML
+    private Button button_clear;
+
+    @FXML
     void initialize() {
+        setLang();
+        setTable();
+        updateTable();
         button_add.setOnAction(event -> setButton_add());
         button_delete.setOnAction(event -> setButton_delete());
         button_update.setOnAction(event -> setButton_update());
-        button_table.setOnAction(event -> setButton_table());
         button_map.setOnAction(event -> setButton_map());
         button_info.setOnAction(event -> setButton_info());
         button_exit.setOnAction(event -> setButton_exit());
+        button_clear.setOnAction(event -> setButton_clear());
+        button_script.setOnAction(event -> setButton_script());
+    }
+
+    private void setLang() {
+        label_user.setText(Lang.getString("user") + " - " + userManager.getUserName());
+        button_add.setText(Lang.getString("add"));
+        button_delete.setText(Lang.getString("delete"));
+        button_update.setText(Lang.getString("update"));
+        name.setText(Lang.getString("name"));
+        coordinates.setText(Lang.getString("coordinates"));
+        annual.setText(Lang.getString("annual"));
+        emploees.setText(Lang.getString("emploees"));
+        type.setText(Lang.getString("type"));
+        date.setText(Lang.getString("date"));
+        creator.setText(Lang.getString("creator"));
+    }
+
+    private void setTable() {
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        coordinates.setCellValueFactory(data -> new SimpleStringProperty((data.getValue().getCoordinates().getX() + "; " + data.getValue().getCoordinates().getY()).replace(".", Lang.getString("separator"))));
+        annual.setCellValueFactory(new PropertyValueFactory<>("annualTurnover"));
+        emploees.setCellValueFactory(new PropertyValueFactory<>("employeesCount"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        date.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate()));
+        creator.setCellValueFactory(new PropertyValueFactory<>("creator"));
+    }
+
+    private void updateTable() {
+        table.setItems(null);
+        table.setItems(FXCollections.observableList(controller.getDataSet().stream().toList()));
     }
 
     private void setButton_add() {
@@ -167,7 +209,7 @@ public class TableController {
         gridPane.add(label5, 0, 2);
         gridPane.add(textField5, 1, 2);
 
-        Label label6 = new Label(Lang.getString("Y:"));
+        Label label6 = new Label("Y:");
         TextField textField6 = new TextField();
         textField5.setStyle("-fx-focus-color: #06498c;");
         gridPane.add(label6, 3, 2);
@@ -276,15 +318,22 @@ public class TableController {
                 organization.setEmployeesCount(Long.parseLong(textField4.getText()));
                 organization.setCoordinates(new Coordinates(Double.parseDouble(textField5.getText()), Double.parseDouble(textField6.getText())));
                 organization.setType(OrganizationType.valueOf(toggleGroup1.getSelectedToggle().getUserData().toString()));
-                // add
-                // if min: checkBox.isSelected();
+                if (checkBox.isSelected()) {
+                    if (controller.addOrganizationifMin(organization) == -1) {
+                        textField3.setText("");
+                        textField3.setPromptText(Lang.getString("not_min"));
+                        return;
+                    }
+                } else {
+                    controller.addOrganization(organization);
+                }
                 button.getScene().getWindow().hide();
-                // updateTable
+                updateTable();
             } catch (Exception ignored) {}
         });
-        Scene scene = new Scene(gridPane, 700, 270);
-        //scene.getStylesheets().add("/css/style.css");
-        //button.getStyleClass().add("submit-button");
+        Scene scene = new Scene(gridPane, 700, 200);
+        scene.getStylesheets().add("/css/style.css");
+        button.getStyleClass().add("submit-button");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -309,17 +358,21 @@ public class TableController {
         gridPane.add(submit, 2, 0);
 
         Scene scene = new Scene(gridPane, 300, 80);
-        //scene.getStylesheets().add("/css/style.css");
-        //submit.getStyleClass().add("submit-button");
+        scene.getStylesheets().add("/css/style.css");
+        submit.getStyleClass().add("submit-button");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.show();
         submit.setOnAction(event -> {
             try {
                 int id = Integer.parseInt(textField.getText());
-                //delete and check user
+                if (!controller.removeOrganizationById(id)) {
+                    textField.setText("");
+                    textField.setPromptText(Lang.getString("not_ur"));
+                    return;
+                }
                 submit.getScene().getWindow().hide();
-                // updateTable
+                updateTable();
             } catch (NumberFormatException numberFormatException) {
                 textField.setText("");
                 textField.setPromptText(Lang.getString("invalid"));
@@ -348,7 +401,7 @@ public class TableController {
         column5.setPercentWidth(20);
         gridPane.getColumnConstraints().addAll(column1, column2, column3, column4, column5);
 
-        Label label = new Label("ID;");
+        Label label = new Label("ID:");
         TextField textField = new TextField();
         textField.setStyle("-fx-focus-color: #06498c;");
         gridPane.add(label, 0, 0);
@@ -384,7 +437,7 @@ public class TableController {
         gridPane.add(label5, 0, 3);
         gridPane.add(textField5, 1, 3);
 
-        Label label6 = new Label(Lang.getString("Y:"));
+        Label label6 = new Label("Y:");
         TextField textField6 = new TextField();
         textField5.setStyle("-fx-focus-color: #06498c;");
         gridPane.add(label6, 3, 3);
@@ -425,10 +478,8 @@ public class TableController {
             textField6.setPromptText("");
             label7.setTextFill(Color.BLACK);
             boolean error = false;
-            int orgId = 0;
             try {
-                orgId = Integer.parseInt(textField.getText());
-                // check user
+                Integer.parseInt(textField.getText());
             } catch (NumberFormatException numberFormatException) {
                 textField.setText("");
                 textField.setPromptText(Lang.getString("invalid"));
@@ -500,32 +551,48 @@ public class TableController {
                 organization.setEmployeesCount(Long.parseLong(textField4.getText()));
                 organization.setCoordinates(new Coordinates(Double.parseDouble(textField5.getText()), Double.parseDouble(textField6.getText())));
                 organization.setType(OrganizationType.valueOf(toggleGroup1.getSelectedToggle().getUserData().toString()));
-                // update организацию с id = orgId
+                if (!controller.updateOrganizationById(organization, Integer.parseInt(textField.getText()))) {
+                    textField.setText("");
+                    textField.setPromptText(Lang.getString("not_ur"));
+                    return;
+                }
                 button.getScene().getWindow().hide();
-                // updateTable
+                updateTable();
             } catch (Exception ignored) {}
         });
-        Scene scene = new Scene(gridPane, 700, 270);
-        //scene.getStylesheets().add("/css/style.css");
-        //button.getStyleClass().add("submit-button");
+        Scene scene = new Scene(gridPane, 700, 230);
+        scene.getStylesheets().add("/css/style.css");
+        button.getStyleClass().add("submit-button");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     private void setButton_info() {
-        showInfo(Lang.getString("info"), "");
+        showInfo(Lang.getString("info"), controller.info());
     }
 
     private void setButton_exit() {
-        // close window
+        if (SpecialWindows.showConfirmationDialog(Lang.getString("u_sure"))) {
+            System.exit(1);
+        }
     }
 
     private void setButton_map() {
-        // open map
+        new MapController(width, height, userManager, controller).launchMapScene(stage);
     }
 
-    private void setButton_table() {
-        // open table
+    private void setButton_clear() {
+        if (controller.clear()) updateTable();
+    }
+
+    private void setButton_script() {
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle(Lang.getString("choose"));
+            String[] command = {"", fileChooser.showOpenDialog(table.getScene().getWindow()).getAbsolutePath()};
+            new Invoker(InputType.FILE, userManager).getCommandMap().get("execute").execute(command);
+            updateTable();
+        } catch (Exception ignored) {}
     }
 }

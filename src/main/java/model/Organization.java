@@ -1,5 +1,8 @@
 package model;
 
+import localization.Lang;
+
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
@@ -212,5 +215,9 @@ public class Organization {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public String getDate() {
+        return new SimpleDateFormat(Lang.getString("date_format")).format(creationDate);
     }
 }

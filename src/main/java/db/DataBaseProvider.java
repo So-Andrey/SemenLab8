@@ -106,8 +106,13 @@ public class DataBaseProvider {
                 id = resultSet.getInt("organization_id");
             }
             statement.close();
+
             request.setId(id);
+
             dataSet.add(request);
+
+            dataSet = loadDataBase();
+
             return id;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -116,8 +121,8 @@ public class DataBaseProvider {
     public boolean updateOrganization(Organization request, int id){
         try {
             String query = "UPDATE organizations SET name = ?, coordinates_id = ?, creation_time = ?, " +
-                    "annual_turnover = ?, employees_count = ?, type = ?, zip_code = ?, creator_name = ? " +
-                    "WHERE organization_id = ?";
+                    "annual_turnover = ?, employees_count = ?, type = ?, zip_code = ? " +
+                    "WHERE organization_id = ? AND creator = ?";
             PreparedStatement statement = sqlConnection.getConnection().prepareStatement(query);
             statement.setString(1, request.getName());
             statement.setInt(2, addCoordinatesToDB(request.getCoordinates()));
@@ -126,8 +131,8 @@ public class DataBaseProvider {
             statement.setLong(5, request.getEmployeesCount());
             statement.setString(6, request.getType().toString());
             statement.setString(7, request.getOfficialAddress().getZipCode());
-            statement.setString(8, request.getCreator());
-            statement.setInt(9, id);
+            statement.setInt(8, id);
+            statement.setString(9, userManager.getUserName());
 
             int affectedRows = statement.executeUpdate();
             if (affectedRows <= 0){
@@ -158,12 +163,20 @@ public class DataBaseProvider {
         }
     }
     public boolean clearOrganization(){
-        int before = dataSet.size();
-        dataSet.stream().filter(p -> p.getCreator().equals(userManager.getUserName()))
-                .map(Organization::getId)
-                .forEach(this::removeOrganizationById);
-        dataSet.removeIf(p -> p.getCreator().equals(userManager.getUserName()));
-        return (before - dataSet.size()) > 0;
+        try {
+            String query = "DELETE FROM organizations WHERE creator_name = ?";
+            PreparedStatement preparedStatement = sqlConnection.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, userManager.getUserName());
+
+            int affectedRows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+            updateDataSet();
+
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Coordinates getCoordinates(int id) {
