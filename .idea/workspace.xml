@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="Added base and some code fixes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/SpecialWindows.java" afterDir="false" />
+    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="imges;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/MapController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/map.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/table.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/table.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alex/Документы/code/java/orders/SemenSwallow/src/main/resources/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a12/Documents/ITMO/Programming/JavaLabs/Orders/ordersWAndrew/Semen/OrganizationLab7&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,7 +75,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/images" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java\services" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java\sql" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java" />
@@ -144,8 +143,6 @@
       <workItem from="1685902407539" duration="3302000" />
       <workItem from="1687107955186" duration="634000" />
       <workItem from="1687108713522" duration="780000" />
-      <workItem from="1687111694326" duration="387000" />
-      <workItem from="1687112591323" duration="1393000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1687108577341</created>
@@ -168,14 +165,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687109470894</updated>
     </task>
-    <task id="LOCAL-00004" summary="Added base and some code fixes">
-      <created>1687111835462</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1687111835462</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +185,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="l10n;" />
-    <MESSAGE value="Added base and some code fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added base and some code fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="l10n;" />
   </component>
 </project>

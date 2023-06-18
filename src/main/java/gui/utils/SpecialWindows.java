@@ -38,22 +38,17 @@ public class SpecialWindows {
         return result.isPresent() && result.get() == yesButton;
     }
 
-
-    public static void showInfoMessage(String title, String message) {
+    public static void showInfo(String title, String info) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(info);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.setStyle("-fx-background-color: #ffa3e4");
+        dialogPane.setStyle("-fx-background-color: #6E739D");
         Button ok = (Button) alert.getDialogPane().lookupButton(ButtonType.OK);
-        ok.setStyle("""
-                    -fx-background-color: #f820e3; //todo
-                    -fx-background-radius: 10;
-                    -fx-border-radius: 10;
-                    -fx-border-color: #68034C;
-                    -fx-cursor: HAND;
-                    """);
+        ok.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #260768; -fx-cursor: HAND;");
         alert.showAndWait();
     }
+
+
 }

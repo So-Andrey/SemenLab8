@@ -117,7 +117,7 @@ public class LoginController implements Initializable {
                     userManager.setUserName(username);
                     controller.userRegister(username, pf_password.getText());
                     label_error_msg.setText("Success"); //todo
-//                    new MainController(width, height, userManager, controller).launchMainScene(stage);
+                    new TableController(width, height, userManager, controller).launchTableScene(stage);
                 } else {
                     label_error_msg.setText("Nickname exist"); //todo
                 }
@@ -128,13 +128,10 @@ public class LoginController implements Initializable {
                 if (controller.checkUserPassword(username, pf_password.getText())) {
                     userManager.setUserName(username);
                     label_error_msg.setText("Success"); //todo
-//                    new MainController(width, height, userManager, controller).launchMainScene(stage);
-                } else {
+                    new TableController(width, height, userManager, controller).launchTableScene(stage);                } else {
                     label_error_msg.setText("Invalid"); //todo
                 }
             }
         }
     }
-
-
 }
