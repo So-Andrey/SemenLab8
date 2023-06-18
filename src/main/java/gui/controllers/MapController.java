@@ -181,22 +181,11 @@ public class MapController implements Initializable {
             controller.getAll().forEach(this::displayOrganization);
 
             ImageView iv = new ImageView(new Image("/clear.gif"));
-            iv.setX(CENTER_X);
-            iv.setY(CENTER_Y);
-            iv.setFitWidth(100);
-            iv.setFitHeight(100);
+            iv.setX(CENTER_X - 300);
+            iv.setY(CENTER_Y - 200);
+            iv.setFitWidth(600);
+            iv.setFitHeight(400);
             pane_map.getChildren().add(iv);
-            try {
-                new Thread(() -> {
-                    try {
-                        Thread.sleep(4000);
-                    } catch (Exception e) {
-                        pane_map.getChildren().remove(iv);
-                    }
-                }).start();
-            } catch (Exception e){
-                pane_map.getChildren().remove(iv);
-            }
         }
     }
 }
