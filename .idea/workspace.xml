@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image 3.png" afterDir="false" />
+    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="Added base and some code fixes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/utils/SpecialWindows.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +144,8 @@
       <workItem from="1685902407539" duration="3302000" />
       <workItem from="1687107955186" duration="634000" />
       <workItem from="1687108713522" duration="780000" />
-      <workItem from="1687111694326" duration="74000" />
+      <workItem from="1687111694326" duration="387000" />
+      <workItem from="1687112591323" duration="1393000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1687108577341</created>
@@ -170,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687109470894</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added base and some code fixes">
+      <created>1687111835462</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687111835462</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +195,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="l10n;" />
-    <option name="LAST_COMMIT_MESSAGE" value="l10n;" />
+    <MESSAGE value="Added base and some code fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added base and some code fixes" />
   </component>
 </project>

@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
@@ -54,6 +53,11 @@
             </Button>
             <TextField fx:id="tf_username" layoutX="57.0" layoutY="155.0" prefHeight="31.0" prefWidth="285.0" />
             <PasswordField fx:id="pf_password" layoutX="57.0" layoutY="272.0" prefHeight="31.0" prefWidth="285.0" />
+            <Label fx:id="label_error_msg" alignment="CENTER" layoutX="57.0" layoutY="326.0" prefHeight="16.0" prefWidth="285.0" textFill="#fa0c0c">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fitHeight="368.0" fitWidth="368.0" layoutX="128.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
@@ -61,5 +65,11 @@
             <Image url="@../images/image%203.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="28.0" layoutX="1038.0" layoutY="726.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@../images/image%204.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="close_button" layoutX="1038.0" layoutY="726.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: TRANSPERENT; -fx-cursor: hand;" />
    </children>
 </AnchorPane>

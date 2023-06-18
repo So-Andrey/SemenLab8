@@ -4,6 +4,9 @@ import db.DataBaseProvider;
 import model.Organization;
 import model.OrganizationType;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -82,5 +85,14 @@ public class OrganizationController {
         answer += "Время создания: " + source.getCreationDate().toString() + "\n";
         answer += "Элементов внутри: " + (source.getDataSet().size()) + "\n";
         return answer;
+    }
+    public boolean checkUserPassword(String username, String password) {
+        return source.checkUserPassword(username, password);
+    }
+    public void userRegister(String username, String password) {
+        source.userRegister(username, password);
+    }
+    public Set<String> getUserNameList() {
+        return source.getUserNameList();
     }
 }
