@@ -45,17 +45,15 @@ public class Organization {
 
     @Override
     public String toString() {
-        return "Organization{" + "\n" +
-                "id=" + id + "\n" +
-                "creator=" + creator + "\n" +
-                "name='" + name + '\'' + "\n" +
-                "coordinates=" + coordinates + "\n" +
-                "creationDate=" + creationDate + "\n" +
-                "annualTurnover=" + annualTurnover + "\n" +
-                "employeesCount=" + employeesCount + "\n" +
-                "type=" + type + "\n" +
-                "officialAddress=" + officialAddress + "\n" +
-                '}' + "\n" ;
+        return "ID = " + id + "\n" +
+                Lang.getString("creator") + " = " + creator + "\n" +
+                Lang.getString("name") + " = " + name + "\n" +
+                Lang.getString("coordinates") + " = " + coordinates + "\n" +
+                Lang.getString("date") + " = " + creationDate + "\n" +
+                Lang.getString("annual") + " = " + annualTurnover + "\n" +
+                Lang.getString("emploees") + " = " + employeesCount + "\n" +
+                Lang.getString("type") + " = " + type + "\n" +
+                Lang.getString("zip") + " = " + officialAddress;
     }
 
     /**
