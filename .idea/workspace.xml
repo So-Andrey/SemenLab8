@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="l10n;" />
+    <list default="true" id="2129a765-9ce5-43f2-b06a-3e9955717ae4" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image 3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/controllers/TableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/OrganizationController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +62,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/a12/Documents/ITMO/Programming/JavaLabs/Orders/ordersWAndrew/Semen/OrganizationLab7&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alex/Документы/code/java/orders/SemenSwallow/src/main/resources/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,6 +78,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/images" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java\services" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java\sql" />
       <recent name="C:\code\java\orders\golubev\gradle_proj\OrganizationLab\src\main\java" />
@@ -137,6 +147,7 @@
       <workItem from="1685902407539" duration="3302000" />
       <workItem from="1687107955186" duration="634000" />
       <workItem from="1687108713522" duration="780000" />
+      <workItem from="1687111694326" duration="74000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1687108577341</created>

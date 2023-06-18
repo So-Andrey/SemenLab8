@@ -14,6 +14,10 @@ public class OrganizationController {
         this.source = source;
     }
 
+    public OrganizationController(CurrentUserManager userManager) {
+        source = new DataBaseProvider(userManager);
+    }
+
     public int addOrganization(Organization request){
         //validateOrganization() {throw new valid}
         return source.addOrganizationToDB(request);
