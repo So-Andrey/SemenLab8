@@ -16,22 +16,22 @@ public class SpecialWindows {
         alert.setHeaderText(null);
         alert.setContentText(message);
         DialogPane dialogPane = alert.getDialogPane();
-        dialogPane.setStyle("-fx-background-color: #ffa3e4");
+        dialogPane.setStyle("-fx-background-color: #6A7FA7");
         ButtonType yesButton = new ButtonType("yes"); //todo
         ButtonType noButton = new ButtonType("no");
         alert.getButtonTypes().setAll(yesButton, noButton);
         dialogPane.lookupButton(yesButton).setStyle("""
-                    -fx-background-color: #f820e3;
+                    -fx-background-color: #CDD4E2;
                     -fx-background-radius: 10;
                     -fx-border-radius: 10;
-                    -fx-border-color: #68034C;
+                    -fx-border-color: #072A6C;
                     -fx-cursor: HAND;
                     """);
         dialogPane.lookupButton(noButton).setStyle("""
-                    -fx-background-color: #f820e3;
+                    -fx-background-color: #CDD4E2;
                     -fx-background-radius: 10;
                     -fx-border-radius: 10;
-                    -fx-border-color: #68034C;
+                    -fx-border-color: #072A6C;
                     -fx-cursor: HAND;
                     """);
         Optional<ButtonType> result = alert.showAndWait();
