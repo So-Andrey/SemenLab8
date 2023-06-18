@@ -38,22 +38,22 @@
                         <Image url="@../images/image 6.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="802.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="84.0" fitWidth="87.0" layoutX="677.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../images/image 12.png" />
+                        <Image url="@../images/broom.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="72.0" fitWidth="105.0" layoutX="689.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="72.0" fitWidth="105.0" layoutX="773.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/image 7.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="button_table" layoutX="693.0" layoutY="17.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="96.0" style="-fx-background-color: transparent;">
+                <Button fx:id="button_table" layoutX="781.0" layoutY="17.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="96.0" style="-fx-background-color: transparent;">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="button_map" layoutX="808.0" layoutY="18.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="73.0" style="-fx-background-color: transparent;">
+                <Button fx:id="button_clear" layoutX="683.0" layoutY="18.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="73.0" style="-fx-background-color: transparent;">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
